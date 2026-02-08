@@ -8,8 +8,6 @@ Mô hình **GA-WOA-LSTM** là framework kết hợp **Genetic Algorithm (GA)** +
 
 ![Workflow](images/flowchart.png)
 
-*(Sao chép ảnh luồng bạn gửi vào thư mục `images/` và đặt tên là `flowchart.png` để README hiển thị đúng.)*
-
 ---
 
 ## 📌 Mục tiêu
