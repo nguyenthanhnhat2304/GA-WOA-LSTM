@@ -34,13 +34,13 @@ Mô hình **GA-WOA-LSTM** là framework kết hợp **Genetic Algorithm (GA)** +
 GA-WOA-LSTM/
 ├─ crawl_data.py
 ├─ data_preprocessing.py
-├─ GA-WOA-LSTM.py
-├─ GA-LSTM.py
-├─ WOA-LSTM.py
-├─ LSTM.py
-├─ RNN.py
-├─ CNN.py
 ├─ BP.py
+├─ CNN.py
+├─ RNN.py
+├─ LSTM.py
+├─ WOA-LSTM.py
+├─ GA-LSTM.py
+├─ GA-WOA-LSTM.py
 └─ images/
    └─ flowchart.png
 ```
