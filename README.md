@@ -1,68 +1,171 @@
-# GA-WOA-LSTM: Hybrid Deep Learning Framework for Stock Price Prediction 📈
+# GA-WOA-LSTM: Mô hình lai tối ưu hóa hyperparameter cho dự báo giá cổ phiếu 📈
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue) ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange) ![License](https://img.shields.io/badge/License-MIT-green)
 
-## 📖 Introduction
-This repository contains the implementation of the **GA-WOA-LSTM** model, developed as part of my Bachelor's Thesis: *"Improving LSTM Hyperparameter Optimization through Genetic and Whale Algorithms: Application to Vietnamese Stock Price Prediction"*.
+---
 
-The project addresses the challenge of hyperparameter tuning in deep learning by introducing a **dual-stage evolutionary strategy**:
-1.  **Genetic Algorithm (GA):** Performs global exploration to identify promising hyperparameter regions.
-2.  **Whale Optimization Algorithm (WOA):** Conducts local refinement to pinpoint the optimal configuration.
-3.  **LSTM Network:** Utilizes the optimized parameters to forecast daily closing prices.
+## 📖 Giới thiệu
 
-## 🚀 Key Features
-- [cite_start]**Hybrid Optimization:** Seamlessly integrates GA (global search) and WOA (local refinement) to prevent premature convergence and stagnation in local optima[cite: 63, 64].
-- [cite_start]**Robustness:** Validated on 15 years of historical data (2010–2025) from the Vietnamese stock market (**VIC, HPG, DPM**)[cite: 515, 517].
-- [cite_start]**High Performance:** Achieved **$R^2$ scores up to 0.9888** (VIC stock), significantly outperforming standard LSTM, CNN, and RNN models[cite: 710, 716].
-- [cite_start]**Comprehensive Benchmarking:** Includes implementations of 6 baseline models for rigorous comparison[cite: 701].
+**GA-WOA-LSTM** là một khung (framework) kết hợp **Genetic Algorithm (GA)** và **Whale Optimization Algorithm (WOA)** để tối ưu siêu tham số cho mạng **LSTM**, phục vụ dự báo giá đóng cửa cổ phiếu hàng ngày. Dự án này là phần của luận văn Cử nhân: *"Improving LSTM Hyperparameter Optimization through Genetic and Whale Algorithms: Application to Vietnamese Stock Price Prediction"*.
 
-## 🛠 Technologies
-- **Language:** Python 3.x
-- **Deep Learning:** TensorFlow / Keras
-- **Data Processing:** Pandas, NumPy, Scikit-learn, Openpyxl
-- **Data Source:** Yfinance (Yahoo Finance API)
-- **Visualization:** Matplotlib
+Mục tiêu chính:
 
-## 📂 Project Structure
-This repository is organized as follows:
+* Giảm thiểu việc dính vào cực trị cục bộ khi tinh chỉnh hyperparameter.
+* Kết hợp ưu thế khám phá toàn cục của GA và tinh chỉnh cục bộ của WOA nhằm tìm cấu hình tối ưu cho LSTM.
 
-### Core Implementation
-- `GA-WOA-LSTM.py`: **Main Model**. The hybrid framework combining GA, WOA, and LSTM.
-- `crawl_data.py`: Script to fetch historical stock data (VIC, HPG, DPM) from Yahoo Finance.
-- [cite_start]`data_preprocessing.py`: Handles data cleaning, MinMax scaling, and sliding window segmentation ($w=8$)[cite: 571].
+---
 
-### Baseline Models (For Comparison)
-- `GA-LSTM.py`: LSTM optimized by Genetic Algorithm only.
-- `WOA-LSTM.py`: LSTM optimized by Whale Optimization Algorithm only.
-- `LSTM.py`: Standard Long Short-Term Memory network.
-- `RNN.py`: Recurrent Neural Network.
-- `CNN.py`: 1D Convolutional Neural Network.
-- `BP.py`: Backpropagation Neural Network.
+## 🚀 Điểm nổi bật
 
-## 📊 Results
-The proposed GA-WOA-LSTM model demonstrated superior performance across all metrics (MAE, RMSE, MAPE, $R^2$).
+* **Chiến lược lai (Hybrid):** GA thực hiện khám phá toàn cục; WOA thực hiện khai thác cục bộ để tinh chỉnh.
+* **Độ tin cậy:** Đã kiểm thử trên ~15 năm dữ liệu (2010–2025) từ thị trường Việt Nam (VIC, HPG, DPM).
+* **Hiệu năng cao:** $R^2$ đạt đến **0.9888** cho mã VIC (theo kết quả luận văn).
+* **So sánh toàn diện:** Bao gồm 6 mô hình chuẩn làm benchmark: LSTM, GA-LSTM, WOA-LSTM, RNN, CNN, BP.
 
-**Performance on Vingroup (VIC) Test Set:**
+---
 
-| Model | MAE | RMSE | MAPE | $R^2$ |
-| :--- | :---: | :---: | :---: | :---: |
-| **GA-WOA-LSTM** | **403.61** | **623.08** | **1.51%** | **0.9888** |
-| GA-LSTM | 415.20 | 663.10 | 1.53% | 0.9873 |
-| LSTM | 688.46 | 947.41 | 2.59% | 0.9742 |
-| CNN | 1749.45 | 1988.51 | 7.22% | 0.8862 |
-[cite_start]*(Data source: Thesis Evaluation Results [cite: 710])*
+## 🧰 Công nghệ
 
-### Visualization
-> *Comparison of Actual vs. Predicted Prices for VIC stock:*
+* Ngôn ngữ: **Python 3.8+**
+* Deep Learning: **TensorFlow / Keras**
+* Xử lý dữ liệu: **pandas, numpy, scikit-learn**
+* Lấy dữ liệu: **yfinance** (Yahoo Finance)
+* Visualizations: **matplotlib**
 
-![Prediction Result](images/result_vic.png)
-*(Please upload your best prediction chart to an `images` folder and name it `result_vic.png`)*
+---
 
-## ⚡ How to Run
+## 📂 Cấu trúc repository (gợi ý)
 
-### 1. Clone the repository
+```
+GA-WOA-LSTM/
+├─ crawl_data.py            # script crawl dữ liệu (VIC, HPG, DPM)
+├─ data_preprocessing.py    # làm sạch, scaling, tạo sliding windows
+├─ GA-WOA-LSTM.py           # file chính triển khai pipeline GA -> WOA -> LSTM
+├─ GA-LSTM.py               # baseline: LSTM tối ưu bởi GA
+├─ WOA-LSTM.py              # baseline: LSTM tối ưu bởi WOA
+├─ LSTM.py                  # baseline: LSTM chuẩn
+├─ RNN.py                   # baseline: RNN
+├─ CNN.py                   # baseline: CNN 1D
+├─ BP.py                    # baseline: MLP/BP
+├─ requirements.txt         # dependencies
+└─ images/
+   ├─ flowchart.png         # sơ đồ quy trình (đặt ảnh luồng ở đây)
+   └─ result_vic.png        # ảnh kết quả dự báo (ví dụ)
+```
+
+> **Lưu ý:** file ảnh luồng quy trình gốc đang có tại: `/mnt/data/fec99984-597f-4324-9ad3-e5e74a11c83e.png`. Bạn có thể copy nó vào `images/flowchart.png` trong repo để hiển thị trong README.
+
+---
+
+## 🔧 Cài đặt
+
+1. Clone repo:
+
 ```bash
-git clone [https://github.com/nguyenthanhnhat2304/GA-WOA-LSTM.git](https://github.com/nguyenthanhnhat2304/GA-WOA-LSTM.git)
+git clone https://github.com/nguyenthanhnhat2304/GA-WOA-LSTM.git
 cd GA-WOA-LSTM
+```
+
+2. Tạo virtual environment (khuyến nghị) và cài dependencies:
+
+```bash
+python -m venv venv
+source venv/bin/activate   # macOS / Linux
+venv\Scripts\activate    # Windows
+pip install -r requirements.txt
+```
+
+*Nếu chưa có `requirements.txt`, cài tối thiểu:*
+
+```bash
+pip install yfinance pandas numpy scikit-learn matplotlib tensorflow openpyxl
+```
+
+---
+
+## ⚡ Ví dụ chạy
+
+### 1) Crawl dữ liệu (VIC, HPG, DPM)
+
+```bash
+python crawl_data.py --tickers VIC.VN HPG.VN DPM.VN --start 2010-03-13 --end 2025-03-13
+```
+
+Kết quả: tạo 3 file CSV `VIC.csv`, `HPG.csv`, `DPM.csv` trong thư mục làm việc.
+
+### 2) Tiền xử lý dữ liệu
+
+```bash
+python data_preprocessing.py --input data/VIC.csv --window 8 --output processed/VIC_processed.npz
+```
+
+* `window` là kích thước cửa sổ trượt (ví dụ w=8).
+
+### 3) Huấn luyện mô hình GA-WOA-LSTM
+
+```bash
+python GA-WOA-LSTM.py --config configs/vic_config.json
+```
+
+* `config` chứa siêu tham số ban đầu, kích thước quần thể (GA), số thế hệ, tham số WOA, giới hạn epoch cho LSTM, v.v.
+
+### 4) Lưu và đánh giá
+
+* Kết quả huấn luyện: model đã học, dự báo trên test set (20%), metrics: MAE, RMSE, MAPE, R².
+* Các biểu đồ: lưu vào `images/` (ví dụ `result_vic.png`).
+
+---
+
+## 📊 Kết quả mẫu (tóm tắt)
+
+*Bảng ví dụ — kết quả trên tập test của mã VIC (theo báo cáo luận văn):*
+
+| Model           |     MAE    |    RMSE    |    MAPE   |    $R^2$   |
+| :-------------- | :--------: | :--------: | :-------: | :--------: |
+| **GA-WOA-LSTM** | **403.61** | **623.08** | **1.51%** | **0.9888** |
+| GA-LSTM         |   415.20   |   663.10   |   1.53%   |   0.9873   |
+| LSTM            |   688.46   |   947.41   |   2.59%   |   0.9742   |
+| CNN             |   1749.45  |   1988.51  |   7.22%   |   0.8862   |
+
+> **Chú ý:** Bảng trên là minh họa kết quả luận văn — nếu bạn chạy lại thí nghiệm trên dữ liệu thực tế, kết quả có thể khác (tùy preprocessing, khoảng thời gian, seed ngẫu nhiên...).
+
+---
+
+## 🖼 Hình minh họa
+
+* Đặt ảnh sơ đồ quy trình vào `images/flowchart.png` để hiển thị quy trình data → huấn luyện → dự báo.
+* Kết quả dự báo minh họa (ví dụ `images/result_vic.png`).
+
+---
+
+## 📚 Tài liệu tham khảo & chú thích
+
+* Mô tả thuật toán GA và WOA, cũng như tài liệu tham khảo dùng trong luận văn nên được đưa vào file `REFERENCES.md` hoặc phần `docs/` nếu cần trích dẫn chi tiết.
+
+---
+
+## 🤝 Đóng góp
+
+* Hoan nghênh PRs để:
+
+  * Cải thiện pipeline tiền xử lý
+  * Thêm mô hình baseline mới
+  * Tự động hoá chạy nhiều mã cùng lúc
+
+Vui lòng mở issue trước khi làm PR lớn.
+
+---
+
+## 📝 License
+
+Bộ mã nguồn được cấp phép theo **MIT License**.
+
+---
+
+## ✉ Liên hệ
+
+Nguyễn Thành Nhật — [GitHub](https://github.com/nguyenthanhnhat2304)
+
+---
+
+*Bạn muốn mình thêm hướng dẫn chi tiết cho `configs/*.json` hay mẫu file `requirements.txt` vào README không?*
