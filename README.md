@@ -27,7 +27,6 @@ The flowchart below illustrates the complete pipeline of the proposed GA-WOA-LST
 
 ![GA-WOA-LSTM Framework](images/flowchart.png)
 
-*(Lưu ý: Nếu hình ảnh không hiển thị, vui lòng kiểm tra lại xem file ảnh đã được đặt đúng trong thư mục `images` với tên `flowchart.png` chưa nhé).*
 
 ---
 
@@ -102,3 +101,4 @@ GA-WOA-LSTM/
 ├── GA_WOA_LSTM.py          # 🌟 Main Hybrid Model
 ├── main.py                 # Entry point to execute various models
 └── README.md
+
