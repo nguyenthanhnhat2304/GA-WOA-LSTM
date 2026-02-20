@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+venv/
+env/
+.env
+.venv
+
+# IDE settings (VS Code, PyCharm...)
+.vscode/
+.idea/
+*.swp
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# (Tùy chọn) Nếu dữ liệu csv quá nặng >100MB thì bỏ dấu # ở dòng dưới
+# *.csv
+# *.xlsx
+
+# Data & model directories (large files, not committed)
+data/raw/*
+data/processed/*
+models/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
+
+# Results (generated outputs)
+results/*
+!results/.gitkeep
+
+# Legacy output folders from old scripts
+processed_data/
+train_results/
+figures/
