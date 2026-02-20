@@ -1,9 +1,0 @@
-numpy
-pandas
-matplotlib
-scikit-learn
-tensorflow
-yfinance
-random
-joblib
-os
