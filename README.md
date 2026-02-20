@@ -21,6 +21,16 @@ By dynamically fusing GA and WOA, this model effectively balances exploration an
 
 ---
 
+## 🔄 Framework / Workflow
+
+The flowchart below illustrates the complete pipeline of the proposed GA-WOA-LSTM model, from data preprocessing to hyperparameter optimization and final prediction:
+
+![GA-WOA-LSTM Framework](images/flowchart.png)
+
+*(Lưu ý: Nếu hình ảnh không hiển thị, vui lòng kiểm tra lại xem file ảnh đã được đặt đúng trong thư mục `images` với tên `flowchart.png` chưa nhé).*
+
+---
+
 ## 📊 Dataset
 
 The model is trained and evaluated on historical daily stock data from three leading companies on the Vietnam Stock Exchange, spanning 15 years from **March 15, 2010, to March 13, 2025**:
@@ -79,6 +89,7 @@ GA-WOA-LSTM/
 ├── data/                   # (Ignored in git) Store raw and processed data
 ├── models/                 # (Ignored in git) Saved model weights
 ├── images/                 # Architecture flowcharts and result plots
+│   └── flowchart.png       # Framework image
 ├── utils.py                # Helper functions for metrics, plotting, and processing
 ├── crawl_data.py           # Script to fetch stock data via yfinance
 ├── data_preprocessing.py   # Data cleaning, scaling, and sliding window generation
